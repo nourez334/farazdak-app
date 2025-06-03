@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرزدق الأحمر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'ios': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    colors: {
+                        'ios-blue': '#007AFF',
+                        'ios-gray': '#F2F2F7',
+                        'ios-dark-gray': '#1C1C1E',
+                        'ios-light-gray': '#F2F2F7'
+                    },
+                    backdropBlur: {
+                        'ios': '20px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
+        }
+        
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .ios-shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ios-button {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .ios-button:active {
+            transform: scale(0.95);
+        }
+        
+        .ios-button-primary {
+            background: linear-gradient(135deg, #007AFF, #0051D0);
+            color: white;
+            border: none;
+        }
+        
+        .red-theme {
+            background: linear-gradient(135deg, #FF3B30, #FF6B65) !important;
+        }
+        
+        .red-theme * {
+            color: #FF3B30 !important;
+        }
+        
+        .red-theme .ios-button {
+            background: rgba(255, 59, 48, 0.1) !important;
+            border-color: rgba(255, 59, 48, 0.3) !important;
+            color: #FF3B30 !important;
+        }
+        
+        .red-theme .ios-button-primary {
+            background: linear-gradient(135deg, #FF3B30, #D70015) !important;
+            color: white !important;
+        }
+        
+        .red-theme .status-bar {
+            background: rgba(255, 59, 48, 0.9) !important;
+            color: white !important;
+        }
+        
+        .red-theme .app-container {
+            background: rgba(255, 59, 48, 0.05) !important;
+            border-color: rgba(255, 59, 48, 0.2) !important;
+        }
+        
+        .dark .ios-button {
+            background: rgba(44, 44, 46, 0.8);
+            border-color: rgba(84, 84, 88, 0.6);
+            color: white;
+        }
+        
+        .dark .red-theme {
+            background: linear-gradient(135deg, #2C1810, #4A0E0E) !important;
+        }
+        
+        .dark .red-theme .ios-button {
+            background: rgba(255, 59, 48, 0.2) !important;
+            color: #FF453A !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-ios-gray dark:bg-ios-dark-gray transition-all duration-300 font-ios">
+    <!-- شريط الحالة iOS -->
+    <div class="status-bar bg-white dark:bg-ios-dark-gray ios-blur border-b border-gray-200 dark:border-gray-700 px-4 py-2 text-sm font-medium text-black dark:text-white">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-1">
+                <div class="w-4 h-2 bg-black dark:bg-white rounded-full opacity-80"></div>
+                <div class="w-4 h-2 bg-black dark:bg-white rounded-full opacity-60"></div>
+                <div class="w-4 h-2 bg-black dark:bg-white rounded-full opacity-40"></div>
+            </div>
+            <div class="text-center font-semibold">9:41</div>
+            <div class="flex items-center space-x-1">
+                <span class="text-xs">100%</span>
+                <div class="w-6 h-3 border border-black dark:border-white rounded-sm">
+                    <div class="w-full h-full bg-green-500 rounded-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-6">
+        <!-- حاوي التطبيق بتصميم iOS -->
+        <div class="app-container max-w-sm mx-auto bg-white dark:bg-ios-dark-gray rounded-3xl ios-shadow ios-blur border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <!-- رأس التطبيق -->
+            <div class="px-6 py-4 bg-white dark:bg-ios-dark-gray border-b border-gray-200 dark:border-gray-700">
+                <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">
+                    🔴 الفرزدق الأحمر
+                </h1>
+                <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-1">
+                    اضغط على 1 للتحويل الأحمر
+                </p>
+            </div>
+
+            <!-- شبكة الأرقام بتصميم iOS -->
+            <div class="p-6">
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <button onclick="handleNumberClick(1)" class="ios-button ios-button-primary h-16 rounded-2xl text-2xl font-semibold text-white shadow-lg ios-shadow">
+                        1
+                    </button>
+                    <button onclick="handleNumberClick(2)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        2
+                    </button>
+                    <button onclick="handleNumberClick(3)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        3
+                    </button>
+                    <button onclick="handleNumberClick(4)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        4
+                    </button>
+                    <button onclick="handleNumberClick(5)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        5
+                    </button>
+                    <button onclick="handleNumberClick(6)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        6
+                    </button>
+                    <button onclick="handleNumberClick(7)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        7
+                    </button>
+                    <button onclick="handleNumberClick(8)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        8
+                    </button>
+                    <button onclick="handleNumberClick(9)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg">
+                        9
+                    </button>
+                    <button onclick="handleNumberClick(0)" class="ios-button h-16 rounded-2xl text-2xl font-semibold text-gray-900 dark:text-white shadow-lg col-span-3">
+                        0
+                    </button>
+                </div>
+
+                <!-- زر إعادة التعيين بتصميم iOS -->
+                <button onclick="resetColors()" class="w-full ios-button h-12 rounded-2xl text-lg font-semibold text-green-600 dark:text-green-400 shadow-lg mb-6 border border-green-200 dark:border-green-700">
+                    إعادة تعيين
+                </button>
+
+                <!-- منطقة عرض الرسائل -->
+                <div id="messageArea" class="ios-button rounded-2xl p-4 text-center min-h-20 flex items-center justify-center">
+                    <p class="text-gray-600 dark:text-gray-300 text-base">
+                        👆 اختر رقمًا
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- مؤشر Home في iOS -->
+        <div class="flex justify-center mt-8">
+            <div class="w-32 h-1 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
+        </div>
+    </div>
+
+    <script>
+        // دعم الوضع المظلم
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // دالة التعامل مع النقر على الأرقام
+        function handleNumberClick(number) {
+            const messageArea = document.getElementById('messageArea');
+            
+            if (number === 1) {
+                // تطبيق اللون الأحمر على كامل الصفحة
+                document.body.classList.add('red-theme');
+                messageArea.innerHTML = `
+                    <div class="text-2xl font-bold mb-2">🔴 تم تفعيل الوضع الأحمر!</div>
+                    <p class="text-lg">تم تحويل جميع العناصر إلى اللون الأحمر كما طلبت</p>
+                `;
+                
+                // إضافة تأثير بصري
+                document.body.style.animation = 'redFlash 0.5s ease-in-out';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 500);
+            } else {
+                messageArea.innerHTML = `
+                    <div class="text-xl font-semibold mb-2">✨ لقد اخترت الرقم ${number}</div>
+                    <p class="text-base">للحصول على التأثير الأحمر، اضغط على الرقم 1</p>
+                `;
+            }
+        }
+
+        // دالة إعادة تعيين الألوان
+        function resetColors() {
+            document.body.classList.remove('red-theme');
+            const messageArea = document.getElementById('messageArea');
+            messageArea.innerHTML = `
+                <div class="text-xl font-semibold mb-2 text-green-600">✅ تم إعادة التعيين!</div>
+                <p class="text-base">عادت الألوان إلى حالتها الطبيعية</p>
+            `;
+            
+            // إضافة تأثير بصري
+            document.body.style.animation = 'greenFlash 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 500);
+        }
+
+        // دعم لوحة المفاتيح
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if (key >= '0' && key <= '9') {
+                handleNumberClick(parseInt(key));
+            } else if (key === 'r' || key === 'R') {
+                resetColors();
+            }
+        });
+
+        // إضافة تأثيرات CSS للرسوم المتحركة
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes redFlash {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.02); background-color: #fecaca; }
+                100% { transform: scale(1); }
+            }
+            
+            @keyframes greenFlash {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.02); background-color: #bbf7d0; }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
